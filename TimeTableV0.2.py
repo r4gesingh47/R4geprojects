@@ -19,6 +19,7 @@ print (colored(banner1,'red'))
 print (colored('credits to r4gesingh47','yellow'))
 userinput=input(colored('Enter the Amizone user id : ','red'))
 passinput=input(colored('Enter the Amizone password : ','red'))
+tableday=input(colored('Enter the Day ex Monday: ','red'))
 print ('starting process!!!!')
 browser=webdriver.Firefox()
 browser.maximize_window()
@@ -36,11 +37,26 @@ time.sleep(5)
 table=browser.find_element_by_xpath('//*[@id="10"]')
 table.click()
 time.sleep(4)
-day=browser.find_element_by_css_selector('#myTab3 > li:nth-child(2) > a:nth-child(1)')
+if tableday=='Monday':
+	i=2
+elif tableday=='Tuesday':
+	i=3
+elif tableday=='Wednesday':
+	i=4
+elif tableday=='Thursday':
+	i=5
+elif tableday=='Friday':
+	i=6
+elif tableday=='Saturday':
+	i=7
+elif tableday=='Sunday':
+	i=1
+day=browser.find_element_by_css_selector('#myTab3 > li:nth-child(%s) > a:nth-child(1)'%(i))
 day.click()
-content=browser.find_element_by_css_selector('#Friday')
+has='#'
+dayid=has+tableday
+content=browser.find_element_by_css_selector(dayid)
 store=open('timetabledata.txt','a')
 store.write(content.text)
 print ('*' * 50)
 print (r'TIME TABLE HAS BEEN WRITTEN IN timetabledata.txt')
-
