@@ -38,19 +38,19 @@ table=browser.find_element_by_xpath('//*[@id="10"]')
 table.click()
 time.sleep(4)
 if tableday=='Monday':
-	i=2
-elif tableday=='Tuesday':
-	i=3
-elif tableday=='Wednesday':
-	i=4
-elif tableday=='Thursday':
-	i=5
-elif tableday=='Friday':
-	i=6
-elif tableday=='Saturday':
-	i=7
-elif tableday=='Sunday':
 	i=1
+elif tableday=='Tuesday':
+	i=2
+elif tableday=='Wednesday':
+	i=3
+elif tableday=='Thursday':
+	i=4
+elif tableday=='Friday':
+	i=5
+elif tableday=='Saturday':
+	i=6
+elif tableday=='Sunday':
+	i=7
 day=browser.find_element_by_css_selector('#myTab3 > li:nth-child(%s) > a:nth-child(1)'%(i))
 day.click()
 has='#'
