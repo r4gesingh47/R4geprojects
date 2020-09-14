@@ -56,7 +56,7 @@ day.click()
 has='#'
 dayid=has+tableday
 content=browser.find_element_by_css_selector(dayid)
-store=open('timetabledata.txt','a')
+store=open('timetabledata.txt','w')
 store.write(content.text)
 print ('*' * 50)
 print (r'TIME TABLE HAS BEEN WRITTEN IN timetabledata.txt')
